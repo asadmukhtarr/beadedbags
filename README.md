@@ -1,1 +1,3 @@
-# beadedbags
+# Installation of php ...
+    - Step # 1: Download Xampp & Install..
+    - Step # 2: Create your first project In Xampp : c://xampp/htodcs/
