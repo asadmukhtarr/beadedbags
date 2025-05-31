@@ -6,5 +6,12 @@
     $confirm_password = $_POST['confirm_password']; // password ...
     // connection between php and database ( mysqli is use to connect php project with database) ..
     include('cn.php'); // for connection ...
-    echo "Working";
+    // = assign a value ..
+    // == for camparison ...
+    // === for camparison of value + type ...
+    if($password == $confirm_password){
+        echo  'password is same';
+    } else {
+        echo 'password is not same';
+    }
 ?>
