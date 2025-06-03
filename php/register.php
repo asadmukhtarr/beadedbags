@@ -3,6 +3,16 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-lg-4">
+                    <?php 
+                        if(!empty($_GET['error'])) { 
+                    ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Warning!</strong> <?php echo $_GET['error']; ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php
+                    }
+                    ?>
                     <div class="card shadow">
                         <div class="card-header bg-danger text-white">
                              <h4> <i class="fa fa-sign-in"></i> Register</h4>
