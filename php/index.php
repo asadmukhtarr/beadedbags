@@ -3,6 +3,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-lg-4">
+                    <?php include('includes/flash.php'); ?>
                     <div class="card shadow">
                         <div class="card-header bg-danger text-white">
                              <h4> <i class="fa fa-sign-in"></i> Login</h4>
