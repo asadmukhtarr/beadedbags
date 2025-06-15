@@ -16,7 +16,11 @@
             'email' => $data['email'],
             'whatsapp' => $data['whatsapp']
         ];
+        //$_SESSION['id'] = $row['id'];
         header('Location:../home.php');
+        //$name = "";
+        // $phone = 00000000000;
+        // $phone = "00000000000";
     } else {
         $error = "Email or password is wrong";
         header('Location:../index.php?error='.$error);
