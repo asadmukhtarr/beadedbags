@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+    <?php session_start(); ?>
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
         <div class="container">
@@ -23,15 +24,25 @@
         
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <?php if(empty($_SESSION['user'])){
+            ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php"><i class="fas fa-sign-in-alt me-1"></i>Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.php"><i class="fas fa-user-plus me-1"></i>Register</a>
+                </li>
+            <?php
+            } else {
+            ?>
             <li class="nav-item">
                 <a class="nav-link active" href="home.php"><i class="fas fa-home me-1"></i>Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.php"><i class="fas fa-sign-in-alt me-1"></i>Login</a>
+              <li class="nav-item">
+                <a class="nav-link active" href="home.php"><i class="fa fa-sign-out"></i> Logout</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="register.php"><i class="fas fa-user-plus me-1"></i>Register</a>
-            </li>
+            <?php 
+            } ?>
             </ul>
         </div>
         </div>

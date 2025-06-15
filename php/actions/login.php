@@ -8,6 +8,14 @@
     $row = mysqli_num_rows($result);
     if($row > 0){
         // sessions and cookies ...
+        $data = mysqli_fetch_array($result); // data fetch throuh query ..
+        session_start(); // starting of session ...
+        $_SESSION['user'] = [
+            'id' => $data['id'],
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'whatsapp' => $data['whatsapp']
+        ];
         header('Location:../home.php');
     } else {
         $error = "Email or password is wrong";
