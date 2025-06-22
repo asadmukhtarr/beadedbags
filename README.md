@@ -26,3 +26,9 @@
             - Step # 4: For New Project CMD Command:  Laravel new project-name
               - Note: Keep Your Laravel Project In Always Htdocs untill you not need sql ..
             - Step # 5: For Run Project: php artisan serve
+    - Laravel Guidlines :
+            - Laravel Based On MVC : Model View Controller ...
+                - Model : App\Models          - Related to database work ... : Migrations ..
+                - Controllers : App\Http\Controllers   ------------ Related to Backend Functionality ..
+                - Views : Resource\views\              ------------ Frontend ..
+            - When you clone a project then run command in CMD: composer update ..
