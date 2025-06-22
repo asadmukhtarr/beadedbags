@@ -6,7 +6,7 @@
         header('Location:./index.php');
     }
     include('./actions/cn.php');
-    $query = "SELECT * FROM `users` ORDER BY id DESC";
+    $query = "SELECT * FROM `users` ORDER BY id DESC"; // through modal in laravel ...
     $result = mysqli_query($cn,$query) or die('cant run query'.mysqli_error($cn));
    // $rows = mysqli_num_rows($result);
 ?>
