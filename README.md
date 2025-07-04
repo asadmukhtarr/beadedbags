@@ -14,6 +14,19 @@
             - Home
             - Register
 
+# Ecommerce Project ..
+
+    - Pages In Ecommerce Site
+        - Products
+        - Add to Cart
+        - Landing Page / Home / Index / Welcome
+        - categories
+        - Single Product
+        - Login/Register
+        - ABout
+        - Contact
+        - Terms And Conditions
+
 # Laravel Lessons:
 
     - System Requirements For Laravel :

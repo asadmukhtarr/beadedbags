@@ -11,8 +11,8 @@ Route::get('/about',[pagesController::class,'about'])->name('about');
 Route::get('/contact',[pagesController::class,'contact'])->name('contact');
 // products ..
 Route::get('/products',[pagesController::class,'products'])->name('products');
-
-
+// cart ..
+Route::get('/cart',[pagesController::class,'cart'])->name('cart');
 Route::get('/atif',function(){
     return "Hello Atif";
 });

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','About')
+@section('title','Cart')
 @section('content')
-<h3>About Page</h3>
+<h3>Cart Page</h3>
 @endsection

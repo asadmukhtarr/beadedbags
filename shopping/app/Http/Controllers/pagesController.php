@@ -22,4 +22,8 @@ class pagesController extends Controller
     public function products(){
         return view('products');
     }
+    // cart ..
+    public function cart(){
+        return view('cart');
+    }
 }
