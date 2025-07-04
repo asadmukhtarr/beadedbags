@@ -22,12 +22,47 @@
     color: #dc3545;
     margin-right: 10px;
 }
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.hero {
+    background: linear-gradient(to right, #dc3545, #ff6f61);
+    color: white;
+    padding: 60px 20px;
+    text-align: left;
+}
+
+.team-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.section-title {
+    border-left: 5px solid #dc3545;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+.product-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.cart-table th,
+.cart-table td {
+    vertical-align: middle;
+}
 </style>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('home') }}"><i class="fa fa-fire"></i> Myshoppinghub</a>
+            <a class="navbar-brand" href="{{ route('home') }}"><i class="fa fa-fire"></i> Asad Mukhtar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -48,16 +83,19 @@
                         <a class="nav-link" href="{{ route('contact') }}"><i class="fa fa-envelope"></i> Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-sm btn-warning mt-2" href="{{ route('cart') }}">
-                            <i class="fa fa-shopping-cart"></i>
-                            Cart
+                        <a class="btn btn-sm btn-warning mt-2 position-relative" href="{{ route('cart') }}">
+                            <i class="fa fa-shopping-cart"></i> Cart
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                                0
+                            </span>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container-fluid">
+    <div>
         @yield('content')
     </div>
 </body>
