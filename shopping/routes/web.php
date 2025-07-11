@@ -13,3 +13,8 @@ Route::get('/contact',[pagesController::class,'contact'])->name('contact');
 Route::get('/products',[pagesController::class,'products'])->name('products');
 // cart ..
 Route::get('/cart',[pagesController::class,'cart'])->name('cart');
+
+// authentication routes ..
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

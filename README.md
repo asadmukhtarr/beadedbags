@@ -14,6 +14,17 @@
             - Home
             - Register
 
+# Authentication In laravel
+
+    - There are two types of authentication ( Login System ) In laravel
+        - Mannually Coded
+        - With Packages and commands ..
+            - php auth vue
+                - Download nodejs and install
+                - Step # 1: run command in project: composer require laravel/ui
+                - Step # 2: run command this: php artisan ui vue --auth
+            - jetstream
+
 # Ecommerce Project ..
 
     - Pages In Ecommerce Site
