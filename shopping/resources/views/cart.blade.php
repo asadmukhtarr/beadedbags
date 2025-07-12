@@ -74,7 +74,8 @@
                             <strong>$114.97</strong>
                         </li>
                     </ul>
-                    <a href="#" class="btn btn-danger w-100"><i class="fa fa-credit-card"></i> Proceed to Checkout</a>
+                    <a href="{{ route('checkout') }}" class="btn btn-danger w-100"><i class="fa fa-credit-card"></i>
+                        Proceed to Checkout</a>
                 </div>
             </div>
         </div>

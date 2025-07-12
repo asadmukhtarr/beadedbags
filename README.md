@@ -37,6 +37,13 @@
         - ABout
         - Contact
         - Terms And Conditions
+    - Admin Side:
+        - Dashboard
+        - Products (Create Product , All Product,Category)
+        - Orders
+        - Analytics
+        - Settings
+        - Logout
 
 # Laravel Lessons:
 

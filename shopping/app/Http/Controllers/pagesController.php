@@ -22,8 +22,16 @@ class pagesController extends Controller
     public function products(){
         return view('products');
     }
+    // single product ..
+    public function product(){
+        return view('product');
+    }
     // cart ..
     public function cart(){
         return view('cart');
+    }
+    // checkout ..
+    public function checkout(){
+        return view('checkout');
     }
 }

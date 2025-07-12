@@ -57,6 +57,36 @@
 .cart-table td {
     vertical-align: middle;
 }
+
+.banner-section {
+    background: url('https://picsum.photos/1200/400?ecommerce') no-repeat center center/cover;
+    height: 400px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-section h1 {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.shop-category:hover {
+    transform: scale(1.05);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.shop-product {
+    transition: 0.3s ease-in-out;
+}
+
+.shop-product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
 </style>
 
 <body>
@@ -82,6 +112,37 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('contact') }}"><i class="fa fa-envelope"></i> Contact</a>
                     </li>
+                    @if(Auth::check())
+                    <!-- ✅ Accounts Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="accountsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-user-circle"></i> {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountsDropdown">
+                            <li><a class="dropdown-item" href="{{ route('dashboard') }}"><i class="fa fa-sign-in"></i>
+                                    Dashboard</a></li>
+                            <li><a class="dropdown-item" href="{{ route('logout') }}"><i class="fa fa-power-off"></i>
+                                    Logout</a></li>
+                        </ul>
+                    </li>
+                    <!-- End Accounts Dropdown -->
+                    @else
+                    <!-- ✅ Accounts Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="accountsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-user"></i> Accounts
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountsDropdown">
+                            <li><a class="dropdown-item" href="{{ route('login') }}"><i class="fa fa-sign-in"></i>
+                                    Login</a></li>
+                            <li><a class="dropdown-item" href="{{ route('register') }}"><i class="fa fa-user-plus"></i>
+                                    Sign Up</a></li>
+                        </ul>
+                    </li>
+                    <!-- End Accounts Dropdown -->
+                    @endif
                     <li class="nav-item">
                         <a class="btn btn-sm btn-warning mt-2 position-relative" href="{{ route('cart') }}">
                             <i class="fa fa-shopping-cart"></i> Cart
