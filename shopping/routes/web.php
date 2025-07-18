@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pagesController;
+use App\Http\Controllers\adminController;
 //use Auth;
 
+// Route::get('/route-ka-link(ju upr path ma show huta hai)',[ControllerName::class,'function ka name'])->name('routekaname');
 // home ..
 Route::get('/', [pagesController::class,'index'])->name('home');
 // about ...
@@ -27,3 +29,14 @@ Route::get('/logout',function(){
 })->name('logout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/orders', [AdminController::class, 'orders'])->name('admin.orders');
+    Route::get('/settings', [AdminController::class, 'settings'])->name('admin.settings');
+
+    // Product Routes
+    Route::get('/products', [AdminController::class, 'products'])->name('admin.products');
+    Route::get('/products/create', [AdminController::class, 'createProduct'])->name('admin.products.create');
+});

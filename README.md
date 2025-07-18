@@ -63,3 +63,7 @@
                 - Controllers : App\Http\Controllers   ------------ Related to Backend Functionality ..
                 - Views : Resource\views\              ------------ Frontend ..
             - When you clone a project then run command in CMD: composer update ..
+
+# External Links:
+
+    - https://github.com/ColorlibHQ/AdminLTE
