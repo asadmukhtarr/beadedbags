@@ -39,5 +39,8 @@ Route::prefix('admin')->group(function () {
     // Product Routes
     Route::get('/products', [AdminController::class, 'products'])->name('admin.products');
     Route::get('/products/create', [AdminController::class, 'createProduct'])->name('admin.products.create');
-    Route::get('/category',[AdminController::class,'category'])->name('admin.products.category');
+    Route::prefix('category')->group(function(){
+        Route::get('/',[AdminController::class,'category'])->name('admin.products.category');
+        Route::post('/save',[AdminController::class,'category_save'])->name('admin.products.category.save');
+    });
 });

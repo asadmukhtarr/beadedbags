@@ -34,4 +34,11 @@ class AdminController extends Controller
     public function category(){
         return view('admin.products.category');
     }
+    // save data ..
+    public function category_save(Request $request){
+        $validated = $request->validate([
+            'title' => 'required|min:8'
+        ]);
+        return ucfirst($request->title);
+    }
 }

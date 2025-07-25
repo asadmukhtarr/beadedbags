@@ -10,10 +10,15 @@
                     <h5 class="mb-0">Add New Category</h5>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form action="{{ route('admin.products.category.save') }}" method="post">
+                        @csrf
                         <div class="mb-3">
                             <label for="title" class="form-label">Category Title</label>
-                            <input type="text" class="form-control" id="title" placeholder="Enter category title">
+                            <input type="text" class="form-control" id="title" name="title"
+                                placeholder="Enter category title">
+                            @error('title')
+                            <font color="red">{{ $message }}</font>
+                            @enderror
                         </div>
                         <div class="d-grid">
                             <button type="submit" class="btn btn-success">
