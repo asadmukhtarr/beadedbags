@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\category;
 
 class AdminController extends Controller
 {
@@ -32,13 +33,25 @@ class AdminController extends Controller
     }
     // category ..
     public function category(){
-        return view('admin.products.category');
+        $categories = category::orderby('id','desc')->get();
+        // for fetch ..
+        return view('admin.products.category',compact('categories'));
     }
     // save data ..
     public function category_save(Request $request){
         $validated = $request->validate([
             'title' => 'required|min:8'
         ]);
-        return ucfirst($request->title);
+        // for insert ..
+        $category = new category;
+        $category->title = $request->title;
+        $category->save();
+        return redirect()->back()->with('success','Category Added Succesfully');
+    }
+    // delete category ..
+    public function delete_category($id){
+        $category = category::find($id);
+        $category->delete();
+        return redirect()->back()->with('warning','Category Deleted Succesfully');
     }
 }

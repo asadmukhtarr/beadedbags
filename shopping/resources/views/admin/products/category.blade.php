@@ -2,9 +2,23 @@
 @section('title','Categories')
 @section('content')
 <div class="my-5">
+    @if($message = session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ $message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    @endif
+    @if($message = session('warning'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ $message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    @endif
     <div class="row">
         <!-- Category Form -->
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="card shadow-sm">
                 <div class="card-header bg-primary text-white">
                     <h5 class="mb-0">Add New Category</h5>
@@ -31,41 +45,35 @@
         </div>
 
         <!-- Category List -->
-        <div class="col-md-7">
+        <div class="col-md-8">
             <div class="card shadow-sm">
                 <div class="card-header bg-success text-white">
                     <h5 class="mb-0">Category List</h5>
                 </div>
                 <div class="card-body p-0">
                     <div class="table-responsive">
-                        <table class="table table-bordered mb-0">
+                        <table class="table table-bordered table-hover table-stripped mb-0">
                             <thead class="table-light">
                                 <tr>
                                     <th>#</th>
                                     <th>Title</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($categories as $category)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Football</td>
+                                    <td>{{ $category->id }}</td>
+                                    <td>{{ $category->title }}</td>
+                                    <td>
+                                        <a href="{{ route('admin.products.category.delete',$category->id) }}"
+                                            onClick="return confirm('Are you sure? you want to delete category.')">
+                                            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                        </a>
+                                        <button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button>
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Cricket</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Tennis</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Hockey</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Volleyball</td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

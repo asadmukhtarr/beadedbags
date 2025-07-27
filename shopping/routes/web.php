@@ -42,5 +42,6 @@ Route::prefix('admin')->group(function () {
     Route::prefix('category')->group(function(){
         Route::get('/',[AdminController::class,'category'])->name('admin.products.category');
         Route::post('/save',[AdminController::class,'category_save'])->name('admin.products.category.save');
+        Route::get('/{id}',[AdminController::class,'delete_category'])->name('admin.products.category.delete');
     });
 });
