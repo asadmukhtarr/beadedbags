@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pagesController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\Admin\productController;
 //use Auth;
 
 // Route::get('/route-ka-link(ju upr path ma show huta hai)',[ControllerName::class,'function ka name'])->name('routekaname');
@@ -37,11 +38,16 @@ Route::prefix('admin')->group(function () {
     Route::get('/settings', [AdminController::class, 'settings'])->name('admin.settings');
 
     // Product Routes
-    Route::get('/products', [AdminController::class, 'products'])->name('admin.products');
-    Route::get('/products/create', [AdminController::class, 'createProduct'])->name('admin.products.create');
+    Route::prefix('products')->group(function(){
+        Route::get('/', [productController::class, 'products'])->name('admin.products');
+        Route::get('/create', [productController::class, 'createProduct'])->name('admin.products.create');
+        Route::post('/save', [productController::class, 'save'])->name('admin.products.save');
+    });
     Route::prefix('category')->group(function(){
         Route::get('/',[AdminController::class,'category'])->name('admin.products.category');
         Route::post('/save',[AdminController::class,'category_save'])->name('admin.products.category.save');
         Route::get('/{id}',[AdminController::class,'delete_category'])->name('admin.products.category.delete');
+        Route::get('/edit/{id}',[AdminController::class,'edit_category'])->name('admin.product.edit.category');
+        Route::post('/update/{id}',[AdminController::class,'update_category'])->name('admin.product.update.category');
     });
 });

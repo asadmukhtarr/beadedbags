@@ -22,15 +22,6 @@ class AdminController extends Controller
         return view('admin.settings');
     }
 
-    // All Products Page
-    public function products() {
-        return view('admin.products.products');
-    }
-
-    // Create Product Page
-    public function createProduct() {
-        return view('admin.products.create');
-    }
     // category ..
     public function category(){
         $categories = category::orderby('id','desc')->get();
@@ -53,5 +44,21 @@ class AdminController extends Controller
         $category = category::find($id);
         $category->delete();
         return redirect()->back()->with('warning','Category Deleted Succesfully');
+    }
+    // edit category page ..
+    public function edit_category($id){
+        $category = category::find($id);
+        return view('admin.products.editcateogry',compact('category'));
+    }
+    // update category ..
+    public function update_category($id,Request $request){
+          $validated = $request->validate([
+            'title' => 'required|min:8'
+        ]);
+        // for insert ..
+        $category = category::find($id);
+        $category->title = $request->title;
+        $category->save();
+        return redirect(route('admin.products.category'))->with('success','Category Updated Succesfully');
     }
 }

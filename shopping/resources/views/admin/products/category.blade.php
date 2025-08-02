@@ -20,8 +20,8 @@
         <!-- Category Form -->
         <div class="col-md-4">
             <div class="card shadow-sm">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Add New Category</h5>
+                <div class="card-header bg-success text-white">
+                    <label class="mb-0"> <i class="bi bi-plus-circle me-1"></i> Add New Category</label>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('admin.products.category.save') }}" method="post">
@@ -48,7 +48,7 @@
         <div class="col-md-8">
             <div class="card shadow-sm">
                 <div class="card-header bg-success text-white">
-                    <h5 class="mb-0">Category List</h5>
+                    <label class="mb-0"> <i class="bi bi-list me-1"></i> Category List</label>
                 </div>
                 <div class="card-body p-0">
                     <div class="table-responsive">
@@ -57,6 +57,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Title</th>
+                                    <th>Create At</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -65,12 +66,15 @@
                                 <tr>
                                     <td>{{ $category->id }}</td>
                                     <td>{{ $category->title }}</td>
+                                    <td>{{ $category->created_at->diffForHumans() }}</td>
                                     <td>
                                         <a href="{{ route('admin.products.category.delete',$category->id) }}"
                                             onClick="return confirm('Are you sure? you want to delete category.')">
                                             <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                         </a>
-                                        <button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button>
+                                        <a href="{{ route('admin.product.edit.category',$category->id) }}">
+                                            <button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button>
+                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach
