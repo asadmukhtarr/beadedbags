@@ -11,7 +11,6 @@
                 <table class="table table-bordered table-hover align-middle mb-0">
                     <thead class="table-light">
                         <tr>
-                            <th>Image</th>
                             <th>Title</th>
                             <th>Price</th>
                             <th>Quantity</th>
@@ -20,58 +19,31 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($products as $product)
                         <tr>
-                            <td><img src="https://via.placeholder.com/60" class="rounded-circle" width="60" height="60"
-                                    alt="Product"></td>
-                            <td>Football</td>
-                            <td>PKR 1,500</td>
-                            <td>25</td>
-                            <td>Sports</td>
+                            <td>
+                                 <img src="{{ asset('storage/products') }}/{{ $product->image }}" 
+                                class="rounded-circle border" 
+                                width="60" height="60" 
+                                alt="Product">
+                                {{ $product->title }}
+                            </td>
+                            <td>PKR {{ $product->price }}</td>
+                            <td>{{ $product->quantity }}</td>
+                            <td>{{ $product->category_id }}</td>
                             <td>
                                 <a href="#" class="btn btn-sm btn-primary">
                                     <i class="bi bi-eye-fill me-1"></i> View
                                 </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="https://via.placeholder.com/60" class="rounded-circle" width="60" height="60"
-                                    alt="Product"></td>
-                            <td>Basketball</td>
-                            <td>PKR 2,000</td>
-                            <td>10</td>
-                            <td>Sports</td>
-                            <td>
-                                <a href="#" class="btn btn-sm btn-primary">
-                                    <i class="bi bi-eye-fill me-1"></i> View
+                                <a href="#" class="btn btn-sm btn-success">
+                                    <i class="bi bi-edit me-1"></i> Edit
+                                </a>
+                                 <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="bi bi-trash me-1"></i> Delete
                                 </a>
                             </td>
                         </tr>
-                        <tr>
-                            <td><img src="https://via.placeholder.com/60" class="rounded-circle" width="60" height="60"
-                                    alt="Product"></td>
-                            <td>Cricket Bat</td>
-                            <td>PKR 3,200</td>
-                            <td>8</td>
-                            <td>Cricket</td>
-                            <td>
-                                <a href="#" class="btn btn-sm btn-primary">
-                                    <i class="bi bi-eye-fill me-1"></i> View
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="https://via.placeholder.com/60" class="rounded-circle" width="60" height="60"
-                                    alt="Product"></td>
-                            <td>Tennis Racket</td>
-                            <td>PKR 4,000</td>
-                            <td>15</td>
-                            <td>Tennis</td>
-                            <td>
-                                <a href="#" class="btn btn-sm btn-primary">
-                                    <i class="bi bi-eye-fill me-1"></i> View
-                                </a>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

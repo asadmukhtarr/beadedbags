@@ -12,7 +12,9 @@ class productController extends Controller
     //
         // All Products Page
     public function products() {
-        return view('admin.products.products');
+        $products = product::all();
+       // return $products;
+        return view('admin.products.products',compact('products'));
     }
 
     // Create Product Page

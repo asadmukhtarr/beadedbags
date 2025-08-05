@@ -37,6 +37,7 @@ class AdminController extends Controller
         $category = new category;
         $category->title = $request->title;
         $category->save();
+//        category::create($request->all());
         return redirect()->back()->with('success','Category Added Succesfully');
     }
     // delete category ..

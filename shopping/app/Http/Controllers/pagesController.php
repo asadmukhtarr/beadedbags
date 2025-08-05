@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\product;
 
 class pagesController extends Controller
 {
@@ -19,8 +20,9 @@ class pagesController extends Controller
         return view('contact');
     }
     // products ..
-    public function products(){
-        return view('products');
+    public function products() {
+        $products = product::all();
+        return view('products', compact('products'));
     }
     // single product ..
     public function product(){
