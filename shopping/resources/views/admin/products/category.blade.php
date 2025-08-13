@@ -57,6 +57,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Title</th>
+                                    <th>Products</th>
                                     <th>Create At</th>
                                     <th>Actions</th>
                                 </tr>
@@ -66,6 +67,7 @@
                                 <tr>
                                     <td>{{ $category->id }}</td>
                                     <td>{{ $category->title }}</td>
+                                    <td>{{ $category->products->count() }}</td>
                                     <td>{{ $category->created_at->diffForHumans() }}</td>
                                     <td>
                                         <a href="{{ route('admin.products.category.delete',$category->id) }}"

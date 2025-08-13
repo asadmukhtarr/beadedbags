@@ -18,10 +18,10 @@
                     <h5 class="card-title">{{ $product->title }}</h5>
                     <p class="card-text">{{ Str::limit($product->description, 100) }}</p>
                     <p class="text-danger fw-bold">PKR {{ number_format($product->price) }}</p>
-                    <a href="{{ route('product') }}" class="btn btn-danger btn-sm">
+                    <a href="#" class="btn btn-danger btn-sm">
                         <i class="fa fa-shopping-cart"></i> Add to Cart
                     </a>
-                    <a href="{{ route('product') }}" class="btn btn-info btn-sm">
+                    <a href="{{ route('product',$product->id) }}" class="btn btn-info btn-sm">
                         <i class="fa fa-eye"></i> view 
                     </a>
                 </div>

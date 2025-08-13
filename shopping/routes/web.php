@@ -16,7 +16,7 @@ Route::get('/contact',[pagesController::class,'contact'])->name('contact');
 // products ..
 Route::get('/products',[pagesController::class,'products'])->name('products');
 // single product ..
-Route::get('/product',[pagesController::class,'product'])->name('product');
+Route::get('/product/{id}',[pagesController::class,'product'])->name('product');
 // cart ..
 Route::get('/cart',[pagesController::class,'cart'])->name('cart');
 // checkout ..
@@ -32,7 +32,7 @@ Route::get('/logout',function(){
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/orders', [AdminController::class, 'orders'])->name('admin.orders');
     Route::get('/settings', [AdminController::class, 'settings'])->name('admin.settings');

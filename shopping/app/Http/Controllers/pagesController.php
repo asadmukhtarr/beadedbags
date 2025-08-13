@@ -25,8 +25,10 @@ class pagesController extends Controller
         return view('products', compact('products'));
     }
     // single product ..
-    public function product(){
-        return view('product');
+    public function product($id){
+        $product = product::find($id);
+       // return $product;
+       return view('product',compact('product'));
     }
     // cart ..
     public function cart(){

@@ -30,7 +30,7 @@
                             </td>
                             <td>PKR {{ $product->price }}</td>
                             <td>{{ $product->quantity }}</td>
-                            <td>{{ $product->category_id }}</td>
+                            <td>{{ $product->category->title }}</td>
                             <td>
                                 <a href="#" class="btn btn-sm btn-primary">
                                     <i class="bi bi-eye-fill me-1"></i> View
