@@ -45,6 +45,8 @@ class productController extends Controller
             $product->category_id = $request->category;
             $product->description = $request->description;
             $product->save();
+            // again example for query ..
+     //       $product = product::create($request->all());
 
             return redirect()->back()->with('success', 'Product saved successfully!');
 
